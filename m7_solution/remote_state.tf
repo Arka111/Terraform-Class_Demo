@@ -29,15 +29,15 @@ variable "read_only_users" {
 # RESOURCES
 ##################################################################################
 
-resource "random_integer" "rand" {
+resource "random_integer" "rands" {
   min = 10000
   max = 99999
 }
 
 locals {
 
-  dynamodb_table_name = "${var.aws_dynamodb_table}-${random_integer.rand.result}"
-  bucket_name         = "${var.aws_bucket_prefix}-${random_integer.rand.result}"
+  dynamodb_table_name = "${var.aws_dynamodb_table}-${random_integer.rands.result}"
+  bucket_name         = "${var.aws_bucket_prefix}-${random_integer.rands.result}"
 }
 
 resource "aws_dynamodb_table" "terraform_statelock" {
