@@ -2,19 +2,19 @@
 # TERRAFORM CONFIG
 ##################################################################################
 
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "~> 3.0"
-    }
-
-  }
-}
+#terraform {
+#  required_providers {
+#    aws = {
+#      source  = "hashicorp/aws"
+#      version = "~> 3.0"
+#    }
+#    random = {
+#      source  = "hashicorp/random"
+#      version = "~> 3.0"
+#    }
+#
+#  }
+#}
 
 ##################################################################################
 # PROVIDERS
@@ -22,4 +22,9 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
+}
+
+
+provider "random" {
+
 }
