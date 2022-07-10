@@ -1,0 +1,1 @@
+terraform init -backend-config="bucket=bucket_name" -backend-config="region=us-east-1" -backend-config="dynamodb_table=table_name"
