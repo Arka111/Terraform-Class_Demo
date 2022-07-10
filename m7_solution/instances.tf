@@ -2,9 +2,9 @@
 # DATA
 ##################################################################################
 
-data "aws_ssm_parameter" "ami" {
-  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
-}
+#data "aws_ssm_parameter" "ami" {
+#  name = "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+#}
 
 ##################################################################################
 # RESOURCES
@@ -13,7 +13,7 @@ data "aws_ssm_parameter" "ami" {
 # INSTANCES #
 resource "aws_instance" "nginx" {
   count                  = var.instance_count
-  ami                    = nonsensitive(data.aws_ssm_parameter.ami.value)
+  ami                    = "ami-0a84a722790d914a9"
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.subnets[(count.index % var.vpc_subnet_count)].id
   vpc_security_group_ids = [aws_security_group.nginx-sg.id]
